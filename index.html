@@ -43,7 +43,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(234,243,246,.94);backdro
 nav ul{display:none;list-style:none;padding:0;gap:26px}
 nav a{text-decoration:none;font-weight:600;padding:8px 2px}
 nav a:hover{color:var(--rio)}
-.nav .btn{min-height:44px;padding:8px 18px}
+.nav .btn{min-height:44px;padding:8px 18px;white-space:nowrap}
 @media(min-width:860px){nav ul{display:flex}}
 
 /* estado */
@@ -294,7 +294,7 @@ footer a{padding:6px 0;display:inline-block}
       </ul>
       <p><strong>Bar El Puente</strong><br>C/ Ramón y Cajal, 6 bajo<br>46822 Bolbaite (Valencia)</p>
       <p style="margin-top:14px"><a class="btn btn-wa" data-wa="Hola, quería reservar mesa en el Bar El Puente." href="#">Escribir por WhatsApp</a></p>
-      <p><a class="btn btn-lin" href="tel:+34654263225">Llamar al 654 26 32 25</a> <span class="edit">WhatsApp por confirmar</span></p>
+      <p><a class="btn btn-lin" href="tel:+34654263225">Llamar al 654 26 32 25</a></p><p class="edit" style="font-size:.9rem">El WhatsApp usa este mismo número, pendiente de confirmar.</p>
     </div>
     <iframe class="mapa" title="Mapa de Bar El Puente en Bolbaite" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Bar%20El%20Puente%2C%20C.%20Ram%C3%B3n%20y%20Cajal%2C%206%2C%2046822%20Bolbaite&output=embed"></iframe>
   </div>
@@ -352,7 +352,8 @@ function estado(){
   document.querySelectorAll('#horas li').forEach(li=>li.classList.toggle('hoy',+li.dataset.d===n.wd));
   const vac=n.iso>='2026-10-13'&&n.iso<='2026-11-01';
   document.getElementById('vac').hidden=!vac;
-  if(vac){box.className='aviso cerrado';t.textContent='Cerrado por vacaciones. Abrimos el 2 de noviembre.';return}
+  box.hidden=vac;
+  if(vac)return;
   const prev=(n.wd+6)%7;
   let abierto=false,cierra=0;
   for(const [a,c] of H[prev]) if(c>1440 && n.min<c-1440){abierto=true;cierra=c-1440}
