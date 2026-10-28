@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bar El Puente · Bolbaite</title>
+<meta name="description" content="Bar El Puente en Bolbaite: bocadillos, tapas, hamburguesas y platos combinados con terraza junto al río. Calle Ramón y Cajal, 6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#EAF3F6; --blanco:#FFFFFF; --tinta:#14303F; --rio:#2F7FB0; --rio-osc:#1F5F88;
+  --naranja:#F08A24; --hoja:#4E7D54; --arena:#F6E7C8; --suave:#4A6573;
+  --radio:18px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:Figtree,system-ui,sans-serif;font-size:17px;line-height:1.55;color:var(--tinta);background:var(--papel);padding-bottom:76px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Fredoka,Figtree,sans-serif;line-height:1.1;font-weight:600;letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--naranja);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+section{padding:64px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;font-size:1rem;cursor:pointer;transition:transform .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-or{background:var(--naranja);color:var(--tinta)}
+.btn-or:hover{background:#ffa043}
+.btn-lin{border-color:var(--tinta);color:var(--tinta);background:transparent}
+.btn-lin:hover{background:var(--tinta);color:var(--blanco)}
+.btn-blanco{background:var(--blanco);color:var(--tinta)}
+.edit{ }
+body.ver-editables .edit{background:#fff176;outline:2px dashed #b58900;outline-offset:2px;color:#111}
+
+/* cabecera */
+header{position:sticky;top:0;z-index:50;background:rgba(234,243,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(20,48,63,.12)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Fredoka;font-weight:700;font-size:1.35rem;color:var(--rio-osc);line-height:1}
+.logo svg{width:38px;height:30px;flex:none}
+.logo small{display:block;font-family:Figtree;font-weight:600;font-size:.7rem;color:var(--suave);letter-spacing:.02em;margin-top:3px}
+nav ul{display:none;list-style:none;padding:0;gap:26px}
+nav a{text-decoration:none;font-weight:600;padding:8px 2px}
+nav a:hover{color:var(--rio)}
+.nav .btn{min-height:44px;padding:8px 18px}
+@media(min-width:860px){nav ul{display:flex}}
+
+/* estado */
+.aviso{background:var(--tinta);color:var(--blanco);font-weight:600;font-size:.95rem}
+.aviso .wrap{display:flex;gap:10px;align-items:center;padding:10px 0;flex-wrap:wrap}
+.punto{width:11px;height:11px;border-radius:50%;background:#9aa;flex:none}
+.aviso.abierto .punto{background:#5be08a}
+.aviso.cerrado .punto{background:var(--naranja)}
+.vac{background:var(--naranja);color:var(--tinta);font-weight:700;text-align:center;padding:10px 16px;font-size:.98rem}
+
+/* hero */
+.hero{padding:40px 0 56px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:32px}
+.hero h1{font-size:clamp(2.5rem,9vw,4.6rem);font-weight:700;color:var(--rio-osc)}
+.hero p.lead{font-size:1.15rem;max-width:34rem;margin:18px 0 26px;color:var(--suave)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;list-style:none;padding:0}
+.chips li{background:var(--blanco);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.arco{position:relative;border-radius:999px 999px 20px 20px;overflow:hidden;aspect-ratio:4/5;background:#cfe0e6;box-shadow:12px 12px 0 var(--rio)}
+.arco img{width:100%;height:100%;object-fit:cover}
+.arco-t{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.92);border-radius:14px;padding:10px 14px;font-weight:600;font-size:.92rem}
+@media(min-width:860px){
+  .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;gap:56px}
+  .hero{padding:64px 0 80px}
+}
+
+/* confianza */
+.confianza{padding:0;background:var(--rio-osc);color:var(--blanco)}
+.confianza ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.confianza li{padding:22px 12px;border:1px solid rgba(255,255,255,.18);text-align:left;font-size:.95rem}
+.confianza strong{display:block;font-family:Fredoka;font-size:1.6rem;font-weight:600;line-height:1.1;margin-bottom:2px}
+.estrellas{color:var(--naranja);letter-spacing:2px}
+@media(min-width:860px){.confianza ul{grid-template-columns:repeat(4,1fr)}.confianza li{padding:26px 24px}}
+
+/* estrella */
+.estrella .wrap{display:grid;gap:32px;align-items:center}
+.estrella h2,.carta h2,.pasos h2,.opin h2,.galeria h2,.visita h2{font-size:clamp(2rem,6vw,3rem);color:var(--rio-osc)}
+.estrella p{margin-top:14px;max-width:32rem;color:var(--suave)}
+.estrella .precio{display:inline-block;margin-top:18px;background:var(--arena);padding:8px 16px;border-radius:12px;font-weight:700}
+.estrella .foto{border-radius:var(--radio);overflow:hidden;aspect-ratio:5/4}
+.estrella .foto img{width:100%;height:100%;object-fit:cover}
+@media(min-width:860px){.estrella .wrap{grid-template-columns:1fr 1fr;gap:56px}.estrella .foto{order:-1}}
+
+/* carta */
+.carta{background:var(--blanco)}
+.carta .cab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:end;margin-bottom:28px}
+.carta .cab p{color:var(--suave);max-width:28rem}
+.grid{display:grid;gap:20px;grid-template-columns:1fr}
+.plato{background:var(--papel);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column}
+.plato img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.plato div{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.plato h3{font-size:1.3rem;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.plato .pr{font-family:Fredoka;color:var(--rio-osc);white-space:nowrap}
+.plato p{color:var(--suave);font-size:.97rem}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+.nota{margin-top:22px;color:var(--suave);font-size:.95rem}
+
+/* pasos */
+.pasos ol{list-style:none;padding:0;display:grid;gap:18px;margin-top:28px;counter-reset:p}
+.pasos li{background:var(--blanco);border-radius:var(--radio);padding:24px;counter-increment:p;display:grid;grid-template-columns:52px 1fr;gap:16px}
+.pasos li::before{content:counter(p);font-family:Fredoka;font-weight:700;font-size:1.5rem;background:var(--naranja);width:52px;height:52px;border-radius:50% 50% 12px 12px;display:grid;place-items:center}
+.pasos h3{font-size:1.25rem;margin-bottom:4px}
+.pasos p{color:var(--suave)}
+@media(min-width:860px){.pasos ol{grid-template-columns:repeat(3,1fr)}}
+
+/* opiniones */
+.opin{background:var(--tinta);color:var(--blanco)}
+.opin h2{color:var(--blanco)}
+.opin .res{display:flex;gap:12px;align-items:center;margin:10px 0 28px;color:#cfe0e6}
+.opin .res strong{font-family:Fredoka;font-size:2rem;color:var(--blanco)}
+.cit{display:grid;gap:18px}
+.cit blockquote{background:rgba(255,255,255,.07);border-radius:var(--radio);padding:24px;font-size:1.08rem}
+.cit cite{display:block;margin-top:14px;font-style:normal;font-size:.9rem;color:#b9d0da}
+@media(min-width:860px){.cit{grid-template-columns:repeat(3,1fr)}}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:26px 0}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.gal .g1{grid-column:span 2;grid-row:span 2}
+.gal .g1,.gal .g1 img{aspect-ratio:auto;height:100%}
+.galeria .cab{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+
+/* visita */
+.visita{background:var(--arena)}
+.visita .wrap{display:grid;gap:32px}
+.horas{list-style:none;padding:0;margin:18px 0;max-width:30rem}
+.horas li{display:flex;justify-content:space-between;gap:16px;padding:10px 14px;border-radius:10px}
+.horas li.hoy{background:var(--tinta);color:var(--blanco);font-weight:700}
+.horas li span:last-child{text-align:right}
+.datos p{margin:6px 0}
+.datos .btn{margin:6px 8px 6px 0}
+.btn-wa{background:#1FA855;color:#fff;min-height:56px;font-size:1.1rem}
+.btn-wa:hover{background:#188a45}
+.mapa{border-radius:var(--radio);overflow:hidden;min-height:340px;border:0;width:100%;height:100%}
+@media(min-width:860px){.visita .wrap{grid-template-columns:1fr 1fr}.mapa{min-height:480px}}
+
+footer{background:var(--tinta);color:#cfe0e6;padding:40px 0 28px;font-size:.95rem}
+footer .wrap{display:grid;gap:18px}
+footer a{padding:6px 0;display:inline-block}
+.fl{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+/* barra movil */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--blanco);box-shadow:0 -4px 18px rgba(0,0,0,.12)}
+.barra .btn{flex:1;min-height:50px;padding:10px 12px}
+@media(min-width:860px){.barra{display:none}body{padding-bottom:0}}
+
+/* franja dueño */
+.dueno{background:#f3f3f3;color:#222;border-top:6px dashed #888;padding:48px 0 56px}
+.dueno .tag{display:inline-block;background:#222;color:#fff;border-radius:6px;padding:5px 12px;font-weight:700;font-size:.9rem}
+.dueno h2{font-size:1.9rem;margin:14px 0 20px}
+.dueno ul{padding-left:20px;display:grid;gap:12px;max-width:46rem;margin-bottom:24px}
+.dueno .btn{background:#222;color:#fff}
+
+@media(max-width:380px){.logo small{display:none}.nav .btn{padding:8px 14px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio" aria-label="Bar El Puente, inicio">
+      <svg viewBox="0 0 38 30" aria-hidden="true"><path d="M2 28V16C2 6 10 2 19 2s17 4 17 14v12" fill="none" stroke="#2F7FB0" stroke-width="4" stroke-linecap="round"/><path d="M10 28v-9c0-5 4-8 9-8s9 3 9 8v9" fill="none" stroke="#F08A24" stroke-width="4" stroke-linecap="round"/></svg>
+      <span>Bar El Puente<small>Bolbaite</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#galeria">Fotos</a></li>
+        <li><a href="#visita">Horario y cómo llegar</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-or" id="navWa" href="#">Reservar mesa</a>
+  </div>
+</header>
+
+<div class="vac" id="vac" hidden>Cerrado por vacaciones del 13 de octubre al 1 de noviembre. Volvemos el 2 de noviembre.</div>
+<div class="aviso" id="aviso" aria-live="polite"><div class="wrap"><span class="punto"></span><span id="avisoTxt">Comprobando horario…</span></div></div>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Bocatas, tapas y terraza junto al río</h1>
+      <p class="lead">Bar familiar en Bolbaite. Bocadillos, tapas, hamburguesas y platos combinados, con mesas en la terraza que da al barranco.</p>
+      <div class="cta">
+        <a class="btn btn-or" data-wa="Hola, quería reservar mesa en el Bar El Puente." href="#">Reservar por WhatsApp</a>
+        <a class="btn btn-lin" href="#carta">Ver la carta</a>
+      </div>
+      <ul class="chips"><li>Tapas</li><li>Bocatas</li><li>Hamburguesas</li><li>Platos combinados</li></ul>
+    </div>
+    <div class="arco">
+      <img src="https://images.unsplash.com/photo-1622497255747-f905467d4843?w=900&h=1100&fit=crop" alt="Puente de piedra sobre un río rodeado de vegetación" fetchpriority="high">
+      <div class="arco-t">Terraza junto al río, en la calle Ramón y Cajal</div>
+    </div>
+  </div>
+</section>
+
+<section class="confianza" aria-label="Datos del bar">
+  <div class="wrap"><ul>
+    <li><strong>4,1 <span class="estrellas" aria-hidden="true">★★★★</span></strong>Valoración en Google</li>
+    <li><strong>161</strong>Reseñas de Google</li>
+    <li><strong>4-5 €</strong>Bocadillos de tamaño generoso</li>
+    <li><strong>Terraza</strong>Al lado del río</li>
+  </ul></div>
+</section>
+
+<section class="estrella">
+  <div class="wrap">
+    <div>
+      <h2>El bocata, lo que más se pide</h2>
+      <p>Es lo que más comentan quienes nos visitan: bocadillos de tamaño decente a buen precio, hechos al momento. Hay muchos para elegir, y si no sabes cuál, pregunta.</p>
+      <span class="precio">Desde <span class="edit">4 €</span></span>
+    </div>
+    <div class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1655279562015-047c3da9a271?w=900&h=720&fit=crop" alt="Bocadillo de pan crujiente con verduras a la plancha"></div>
+  </div>
+</section>
+
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="cab">
+      <h2>Para picar y para llenar</h2>
+      <p>Una selección de la carta. Si buscas algo que no está aquí, escríbenos.</p>
+    </div>
+    <div class="grid">
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1565599837634-134bc3aadce8?w=700&h=470&fit=crop" alt="Plato de patatas bravas con salsa"><div><h3>Bravas <span class="pr edit">3,00 €</span></h3><p>Ración generosa, como dicen en las reseñas.</p></div></article>
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?w=700&h=470&fit=crop" alt="Bocadillo servido sobre papel"><div><h3>Bocadillos <span class="pr edit">desde 4,00 €</span></h3><p>Muchas combinaciones para elegir.</p></div></article>
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&h=470&fit=crop" alt="Hamburguesa con queso, lechuga y tomate"><div><h3>Hamburguesa completa <span class="pr edit">6,00 €</span></h3><p>Con todo lo que lleva una buena hamburguesa.</p></div></article>
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1682264895449-f75b342cbab6?w=700&h=470&fit=crop" alt="Calamares a la romana en un plato"><div><h3>Calamares <span class="pr edit">2,50 €</span></h3><p>A la romana, para compartir en la terraza.</p></div></article>
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1542904990-d60f68e9af4e?w=700&h=470&fit=crop" alt="Mesa con croquetas y embutido"><div><h3>Croquetas caseras <span class="pr edit">2,00 €</span></h3><p>De jamón, hechas en casa.</p></div></article>
+      <article class="plato"><img loading="lazy" src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=700&h=470&fit=crop" alt="Tarta de chocolate casera"><div><h3>Tarta de chocolate <span class="pr edit">3,00 €</span></h3><p>Postre casero para cerrar la comida.</p></div></article>
+    </div>
+    <p class="nota">Los precios son orientativos. <span class="edit">Pendiente de revisar con la carta actual.</span></p>
+  </div>
+</section>
+
+<section class="pasos">
+  <div class="wrap">
+    <h2>Reservar es cosa de un minuto</h2>
+    <ol>
+      <li><div><h3>Escríbenos o llama</h3><p>Por WhatsApp o por teléfono, como prefieras.</p></div></li>
+      <li><div><h3>Dinos cuándo y cuántos</h3><p>Día, hora y número de personas. Si quieres terraza, pídela.</p></div></li>
+      <li><div><h3>Ven a comer</h3><p>Te guardamos la mesa en la calle Ramón y Cajal, 6.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="opin" id="opiniones">
+  <div class="wrap">
+    <h2>Lo que dicen en Google</h2>
+    <div class="res"><strong>4,1</strong><span><span class="estrellas" aria-hidden="true">★★★★☆</span><br>161 reseñas de Google</span></div>
+    <div class="cit">
+      <blockquote>“Unas tapas de bravas más que generosas y los bocatas me han dejado sin palabras.”<cite><span class="estrellas" aria-hidden="true">★★★★★</span> Reseñas de Google</cite></blockquote>
+      <blockquote>“Tienen muy buenos precios con bocadillos de un tamaño decente por unos 4-5€.”<cite><span class="estrellas" aria-hidden="true">★★★★★</span> Reseñas de Google</cite></blockquote>
+      <blockquote>“Calidad precio es excepcional. La terraza al lado del río vale mucho la pena.”<cite><span class="estrellas" aria-hidden="true">★★★★★</span> Reseñas de Google</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="cab"><h2>Mira lo que sale de la cocina</h2><a class="btn btn-lin" href="https://www.instagram.com/bar_el_puente_bolbaite/" target="_blank" rel="noopener">Síguenos en Instagram</a></div>
+    <div class="gal">
+      <a class="g1" href="https://www.instagram.com/bar_el_puente_bolbaite/" target="_blank" rel="noopener"><img loading="lazy" src="https://images.unsplash.com/photo-1655279562015-047c3da9a271?w=800&h=800&fit=crop" alt="Bocadillo"></a>
+      <img loading="lazy" src="https://images.unsplash.com/photo-1565599837634-134bc3aadce8?w=400&h=400&fit=crop" alt="Bravas">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop" alt="Hamburguesa">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1682264895449-f75b342cbab6?w=400&h=400&fit=crop" alt="Calamares">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1590426556824-5d005c1d0ece?w=400&h=400&fit=crop" alt="Tapas variadas en una mesa">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=400&fit=crop" alt="Tarta de chocolate">
+    </div>
+    <p class="nota">@bar_el_puente_bolbaite</p>
+  </div>
+</section>
+
+<section class="visita" id="visita">
+  <div class="wrap">
+    <div class="datos">
+      <h2>Horario y cómo llegar</h2>
+      <ul class="horas" id="horas">
+        <li data-d="1"><span>Lunes</span><span>9:30–15:00 y 17:00–1:30</span></li>
+        <li data-d="2"><span>Martes</span><span>9:30–15:00 y 17:00–1:30</span></li>
+        <li data-d="3"><span>Miércoles</span><span>9:30–15:00 y 17:00–1:30</span></li>
+        <li data-d="4"><span>Jueves</span><span>9:30–15:00 y 17:00–1:30</span></li>
+        <li data-d="5"><span>Viernes</span><span>10:00–1:30</span></li>
+        <li data-d="6"><span>Sábado</span><span>10:00–1:30</span></li>
+        <li data-d="0"><span>Domingo y festivos</span><span>10:00–1:30</span></li>
+      </ul>
+      <p><strong>Bar El Puente</strong><br>C/ Ramón y Cajal, 6 bajo<br>46822 Bolbaite (Valencia)</p>
+      <p style="margin-top:14px"><a class="btn btn-wa" data-wa="Hola, quería reservar mesa en el Bar El Puente." href="#">Escribir por WhatsApp</a></p>
+      <p><a class="btn btn-lin" href="tel:+34654263225">Llamar al 654 26 32 25</a> <span class="edit">WhatsApp por confirmar</span></p>
+    </div>
+    <iframe class="mapa" title="Mapa de Bar El Puente en Bolbaite" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Bar%20El%20Puente%2C%20C.%20Ram%C3%B3n%20y%20Cajal%2C%206%2C%2046822%20Bolbaite&output=embed"></iframe>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:#fff;font-family:Fredoka;font-size:1.2rem">Bar El Puente · Bolbaite</strong>
+    <div class="fl">
+      <a href="https://www.instagram.com/bar_el_puente_bolbaite/" target="_blank" rel="noopener">Instagram</a>
+      <a class="edit" href="#">Facebook</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Bar+El+Puente+Bolbaite" target="_blank" rel="noopener">Google Maps</a>
+    </div>
+    <div class="fl"><a class="edit" href="#">Aviso legal</a><a class="edit" href="#">Privacidad</a><a class="edit" href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-lin" href="tel:+34654263225">Llamar</a>
+  <a class="btn btn-or" data-wa="Hola, quería reservar mesa en el Bar El Puente." href="#">Reservar mesa</a>
+</div>
+
+<section class="dueno">
+  <div class="wrap">
+    <span class="tag">Esta franja no aparece en la web publicada</span>
+    <h2>Por qué le sirve esta web a Bar El Puente</h2>
+    <ul>
+      <li><strong>Reservas directas, sin comisiones.</strong> El cliente escribe por WhatsApp o llama desde la web, sin pasar por plataformas.</li>
+      <li><strong>Salir en Google y Maps.</strong> Una web propia ayuda a aparecer cuando alguien busca “bar en Bolbaite” o “bocadillos en Bolbaite”, con carta, horario y terraza a la vista.</li>
+      <li><strong>Horario y carta fáciles de cambiar.</strong> Avisos como el cierre por vacaciones del 13 de octubre al 1 de noviembre se muestran solos en la web y no hace falta repetirlos en cada sitio.</li>
+      <li><strong>Su 4,1 en Google, bien presentado.</strong> 161 reseñas que hoy solo se ven en Maps pasan a ser un argumento visible para quien llega desde el móvil.</li>
+    </ul>
+    <button class="btn" id="resaltar" type="button">Resaltar datos a confirmar</button>
+  </div>
+</section>
+
+<script>
+const WA='34654263225';
+document.querySelectorAll('[data-wa]').forEach(a=>a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(a.dataset.wa));
+document.getElementById('navWa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quería reservar mesa en el Bar El Puente.');
+document.getElementById('resaltar').addEventListener('click',()=>document.body.classList.toggle('ver-editables'));
+
+// Horario (Europe/Madrid). Minutos desde las 0:00; el cierre pasa de medianoche (25:30 = 1:30).
+const H={1:[[570,900],[1020,1530]],2:[[570,900],[1020,1530]],3:[[570,900],[1020,1530]],4:[[570,900],[1020,1530]],5:[[600,1530]],6:[[600,1530]],0:[[600,1530]]};
+const DIAS=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const fmt=m=>{m%=1440;return Math.floor(m/60)+':'+String(m%60).padStart(2,'0')};
+function ahora(){
+  const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).reduce((o,x)=>(o[x.type]=x.value,o),{});
+  const wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday];
+  return {wd,iso:`${p.year}-${p.month}-${p.day}`,min:+p.hour*60+ +p.minute};
+}
+function estado(){
+  const n=ahora(), box=document.getElementById('aviso'), t=document.getElementById('avisoTxt');
+  document.querySelectorAll('#horas li').forEach(li=>li.classList.toggle('hoy',+li.dataset.d===n.wd));
+  const vac=n.iso>='2026-10-13'&&n.iso<='2026-11-01';
+  document.getElementById('vac').hidden=!vac;
+  if(vac){box.className='aviso cerrado';t.textContent='Cerrado por vacaciones. Abrimos el 2 de noviembre.';return}
+  const prev=(n.wd+6)%7;
+  let abierto=false,cierra=0;
+  for(const [a,c] of H[prev]) if(c>1440 && n.min<c-1440){abierto=true;cierra=c-1440}
+  for(const [a,c] of H[n.wd]) if(n.min>=a&&n.min<c){abierto=true;cierra=c}
+  if(abierto){box.className='aviso abierto';t.textContent='Abierto ahora. Cerramos a las '+fmt(cierra)+'.';return}
+  box.className='aviso cerrado';
+  const prox=H[n.wd].find(([a])=>a>n.min);
+  if(prox){t.textContent='Cerrado ahora. Abrimos hoy a las '+fmt(prox[0])+'.';return}
+  for(let i=1;i<=7;i++){const d=(n.wd+i)%7;t.textContent='Cerrado ahora. Abrimos '+(i===1?'mañana':'el '+DIAS[d])+' a las '+fmt(H[d][0][0])+'.';return}
+}
+estado();setInterval(estado,60000);
+</script>
+</body>
+</html>
